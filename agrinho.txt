@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Festejando a Conexão Campo-Cidade</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        header.hero {
+            position: relative;
+            background: url('https://img.freepik.com/fotos-gratis/campo-com-cidade-ao-fundo_23-2148912452.jpg') center/cover no-repeat;
+            height: 100vh;
+            min-height: 500px;
+            color: white;
+        }
+        header.hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        header.hero .hero-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        header.hero h1 {
+            font-size: 3rem;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        header.hero p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: #009C3B;
+            margin-bottom: 20px;
+        }
+        section p, section li {
+            font-size: 1rem;
+            color: #444;
+        }
+        .highlight-item, .album {
+            flex: 1 1 250px;
+            background: #fff;
+            border-left: 6px solid #009C3B;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            header.hero h1 {
+                font-size: 2.5rem;
+            }
+            header.hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Festejando a Conexão Campo-Cidade</h1>
+            <p>Uma união que alimenta, transforma e celebra</p>
+        </div>
+    </header>
+
+    <section id="introducao">
+        <h2>Introdução</h2>
+        <p>A conexão entre o campo e a cidade é muito mais do que a simples troca de produtos. Ela representa uma relação de interdependência, onde o campo fornece alimentos, matérias-primas e cultura, enquanto a cidade contribui com tecnologia, serviços e mercados consumidores. Este projeto celebra essa união essencial para o desenvolvimento sustentável.</p>
+    </section>
+
+    <section id="historia">
+        <h2>História da Conexão Campo-Cidade</h2>
+        <p>Desde os tempos coloniais, o Brasil sempre teve uma forte relação entre suas áreas urbanas e rurais. A cidade cresceu graças ao trabalho e à produção do campo, e com o passar dos anos, essa relação evoluiu. Hoje, a tecnologia, o transporte e a comunicação aproximam ainda mais esses dois mundos.</p>
+    </section>
+
+    <section id="eventos">
+        <h2>Festas e Eventos que Celebram Essa Conexão</h2>
+        <div class="highlight-item">
+            <p><strong>Feiras Agropecuárias:</strong> Locais onde os produtores rurais apresentam suas colheitas, animais e inovações tecnológicas para o público urbano.</p>
+        </div>
+        <div class="highlight-item">
+            <p><strong>Festas Juninas:</strong> Celebradas tanto no campo quanto na cidade, com comidas típicas feitas com produtos rurais.</p>
+        </div>
+        <div class="highlight-item">
+            <p><strong>Feiras de Agricultura Familiar:</strong> Um espaço de troca direta entre produtor e consumidor, fortalecendo o comércio local.</p>
+        </div>
+    </section>
+
+    <section id="importancia">
+        <h2>A Importância do Campo para a Cidade</h2>
+        <p>Sem o trabalho diário dos produtores rurais, a cidade não teria acesso a alimentos frescos, matérias-primas e até mesmo lazer e turismo rural. Essa parceria garante qualidade de vida, segurança alimentar e desenvolvimento econômico.</p>
+    </section>
+
+    <section id="sustentabilidade">
+        <h2>Sustentabilidade e Futuro</h2>
+        <p>O futuro da conexão campo-cidade depende de práticas sustentáveis. Investir em agricultura responsável, consumo consciente e tecnologia verde é essencial para manter esse elo forte e saudável para as próximas gerações.</p>
+    </section>
+
+</body>
+</html>

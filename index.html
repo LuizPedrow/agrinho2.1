@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Festejando a Conexão Campo-Cidade</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8; /* Cor de fundo levemente alterada */
+            color: #333;
+            line-height: 1.6;
+        }
+        header.hero {
+            position: relative;
+            background: url('https://img.freepik.com/fotos-gratis/campo-com-cidade-ao-fundo_23-2148912452.jpg') center/cover no-repeat;
+            height: 100vh;
+            min-height: 500px;
+            color: white;
+            display: flex; /* Para centralizar o conteúdo verticalmente */
+            align-items: center; /* Para centralizar o conteúdo verticalmente */
+            justify-content: center; /* Para centralizar o conteúdo horizontalmente */
+        }
+        header.hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Overlay um pouco mais escuro */
+        }
+        header.hero .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 800px; /* Limita a largura do conteúdo do hero */
+        }
+        header.hero h1 {
+            font-size: 3.5rem; /* Fonte um pouco maior */
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8); /* Sombra mais pronunciada */
+            animation: fadeInDown 1s ease-out; /* Animação ao carregar */
+        }
+        header.hero p {
+            font-size: 1.8rem; /* Fonte um pouco maior */
+            margin-top: 15px; /* Margem ajustada */
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            animation: fadeInUp 1s ease-out 0.5s forwards; /* Animação com delay */
+            opacity: 0; /* Inicia invisível para a animação */
+        }
+
+        /* Animações de entrada */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo da barra de navegação */
+        nav {
+            background-color: #008030; /* Verde Agrinho */
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky; /* Fixa a navegação no topo */
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            color: #FFD700; /* Dourado */
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        section {
+            padding: 80px 20px; /* Padding maior */
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white; /* Fundo branco para seções */
+            box-shadow: 0 0 15px rgba(0,0,0,0.05); /* Sombra suave para as seções */
+            border-radius: 8px; /* Cantos arredondados */
+            margin-bottom: 30px; /* Espaço entre as seções */
+            opacity: 0; /* Inicia invisível para scroll reveal */
+            transform: translateY(30px); /* Inicia um pouco abaixo para scroll reveal */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transição para scroll reveal */
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section:nth-of-type(even) { /* Estilo alternado para seções */
+            background-color: #fdfdfd;
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem; /* Título maior */
+            color: #007B2E; /* Verde mais escuro */
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+        section h2::after { /* Linha decorativa abaixo do título */
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #FFD700; /* Dourado */
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        section p, section li {
+            font-size: 1.1rem; /* Fonte do texto um pouco maior */
+            color: #444;
+            text-align: justify; /* Justifica o texto */
+        }
+        section ul {
+            list-style: none; /* Remove marcadores padrão */
+            padding: 0;
+        }
+        section ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        section ul li::before { /* Marcadores personalizados */
+            content: '🌿'; /* Ícone de folha ou outro */
+            position: absolute;
+            left: 0;
+            color: #009C3B;
+            font-size: 1.2rem;
+            top: 0;
+        }
+
+        .highlight-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px; /* Espaço entre os itens */
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .highlight-item {
+            flex: 1 1 calc(33% - 25px); /* Três itens por linha em telas maiores */
+            background: #fff;
+            border-left: 8px solid #009C3B; /* Borda mais grossa */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra mais suave */
+            padding: 25px;
+            border-radius: 8px; /* Cantos arredondados */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição ao hover */
+        }
+        .highlight-item:hover {
+            transform: translateY(-5px); /* Efeito de elevação ao hover */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        .highlight-item strong {
+            color: #007B2E;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos da galeria de imagens */
+        .album {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .album-item {
+            width: calc(33% - 15px); /* 3 imagens por linha */
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .album-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .album-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .album-item p {
+            padding: 10px;
+            margin: 0;
+            font-size: 0.95rem;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Botão Voltar ao Topo */
+        #backToTopBtn {
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Fixo na tela */
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #009C3B;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%; /* Redondo */
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        #backToTopBtn:hover {
+            background-color: #007B2E;
+            transform: translateY(-3px);
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .highlight-item {
+                flex: 1 1 calc(50% - 25px); /* Dois itens por linha em tablets */
+            }
+            .album-item {
+                width: calc(50% - 15px); /* 2 imagens por linha em tablets */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header.hero h1 {
+                font-size: 2.8rem;
+            }
+            header.hero p {
+                font-size: 1.4rem;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            nav ul li a {
+                font-size: 1rem;
+            }
+            section {
+                padding: 60px 15px;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+            .highlight-item {
+                flex: 1 1 100%; /* Um item por linha em celulares */
+            }
+            .album-item {
+                width: 100%; /* Uma imagem por linha em celulares */
+            }
+        }
+        @media (max-width: 480px) {
+            header.hero h1 {
+                font-size: 2.2rem;
+            }
+            header.hero p {
+                font-size: 1.2rem;
+            }
+            nav ul {
+                flex-direction: column; /* Itens da nav empilhados em celulares */
+            }
+            nav ul li {
+                margin-bottom: 10px;
+            }
+            #backToTopBtn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#historia">História</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#importancia">Importância</a></li>
+            <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Festejando a Conexão Campo-Cidade</h1>
+            <p>Uma união que alimenta, transforma e celebra</p>
+        </div>
+    </header>
+
+    <section id="introducao">
+        <h2>Introdução</h2>
+        <p>A conexão entre o campo e a cidade é muito mais do que a simples troca de produtos. Ela representa uma relação de interdependência, onde o campo fornece alimentos, matérias-primas e cultura, enquanto a cidade contribui com tecnologia, serviços e mercados consumidores. Este projeto celebra essa união essencial para o desenvolvimento sustentável.</p>
+        <p>Desde a produção de alimentos frescos que chegam às nossas mesas, até a matéria-prima que movimenta a indústria e o artesanato, o campo é a base de grande parte do que consumimos e vivenciamos na cidade. Da mesma forma, a cidade oferece infraestrutura, educação e oportunidades que impulsionam o desenvolvimento rural. É uma troca contínua e vital.</p>
+    </section>
+
+    <section id="historia">
+        <h2>História da Conexão Campo-Cidade no Brasil</h2>
+        <p>Desde os tempos coloniais, o Brasil sempre teve uma forte relação entre suas áreas urbanas e rurais. A cidade cresceu graças ao trabalho e à produção do campo, e com o passar dos anos, essa relação evoluiu. Hoje, a tecnologia, o transporte e a comunicação aproximam ainda mais esses dois mundos. A modernização do campo com inovações tecnológicas e a valorização dos produtos locais são exemplos claros de como essa conexão se fortalece ao longo do tempo.</p>
+    </section>
+
+    <section id="eventos">
+        <h2>Festas e Eventos que Celebram Essa Conexão</h2>
+        <div class="highlight-container">
+            <div class="highlight-item">
+                <p><strong>Feiras Agropecuárias:</strong> Locais onde os produtores rurais apresentam suas colheitas, animais e inovações tecnológicas para o público urbano, promovendo negócios e aprendizado.</p>
+            </div>
+            <div class="highlight-item">
+                <p><strong>Festas Juninas:</strong> Celebradas tanto no campo quanto na cidade, com comidas típicas feitas com produtos rurais, resgatando tradições e sabores que unem a cultura popular.</p>
+            </div>
+            <div class="highlight-item">
+                <p><strong>Feiras de Agricultura Familiar:</strong> Um espaço de troca direta entre produtor e consumidor, fortalecendo o comércio local, a economia solidária e a valorização do pequeno produtor.</p>
+            </div>
+            <div class="highlight-item">
+                <p><strong>Eventos Gastronômicos Rurais:</strong> Degustação de produtos orgânicos, queijos, vinhos e outras iguarias diretamente da fonte, conectando o paladar urbano à riqueza do campo.</p>
+            </div>
+            <div class="highlight-item">
+                <p><strong>Visitas a Fazendas e Agroturismo:</strong> Oportunidade para citadinos vivenciarem o dia a dia do campo, aprenderem sobre produção e desfrutarem da natureza, fortalecendo o turismo rural.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="importancia">
+        <h2>A Importância do Campo para a Cidade</h2>
+        <p>Sem o trabalho diário dos produtores rurais, a cidade não teria acesso a alimentos frescos, matérias-primas essenciais para a indústria e até mesmo opções de lazer e turismo rural. Essa parceria garante qualidade de vida, segurança alimentar e desenvolvimento econômico para ambos os lados. O campo é o pulmão e a despensa da cidade, fornecendo os recursos vitais para a sua subsistência e prosperidade.</p>
+    </section>
+
+    <section id="sustentabilidade">
+        <h2>Sustentabilidade e Futuro dessa Conexão</h2>
+        <p>O futuro da conexão campo-cidade depende de práticas sustentáveis. Investir em agricultura responsável, consumo consciente e tecnologia verde é essencial para manter esse elo forte e saudável para as próximas gerações. Isso inclui desde a preservação dos recursos naturais no campo até o apoio a cadeias produtivas justas e a redução do desperdício nas cidades. Juntos, campo e cidade podem construir um futuro mais equilibrado e próspero.</p>
+    </section>
+
+    <section id="galeria">
+        <h2>Galeria: Campo & Cidade em Imagens</h2>
+        <div class="album">
+            <div class="album-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiewnm0HFeFTytcP-MV4BwKRQOBrGLGGWh1SOc4PRq_VI_bGeDEiNDPB3Wk8lk9DeE5wdRfWxX3MMOI9pj9VzM4RWSMipi4aMtRV1CINhDyMIZ4mn_LXxyh3BuScAloCmUd-MXDHI_kTfw/s1600/IMG_1442-001.JPG" alt="Feira Livre na Cidade">
+                <p>Produtos frescos do campo chegando à cidade.</p>
+            </div>
+            <div class="album-item">
+                <img src="https://cerradocase.com.br/wp-content/uploads/2023/10/milho.jpeg" alt="Colheita no Campo">
+                <p>O trabalho essencial no campo que alimenta o Brasil.</p>
+            </div>
+            <div class="album-item">
+                <img src="https://portaladama.com/wp-content/uploads/2022/11/Drone-scaled.jpeg" alt="Tecnologia no Campo">
+                <p>Inovação da cidade aplicada para otimizar o campo.</p>
+            </div>
+            <div class="album-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Jardim_Botânico_Centro_Curitiba.jpg" alt="Parque Urbano">
+                <p>Áreas verdes na cidade, inspiradas na natureza do campo.</p>
+            </div>
+            <div class="album-item">
+                <img src="https://s2-globorural.glbimg.com/ypxhacEj-bMEyNZvjg28J0pxDC8=/0x0:4000x2250/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_afe5c125c3bb42f0b5ae633b58923923/internal_photos/bs/2025/O/3/9zuI0wQqGFg5i7oO0tEw/turismo-rural-fazenda-serrinha-2-municipio-sao-tiago.jpg" alt="Turismo Rural">
+                <p>Citadinos visitando propriedades rurais.</p>
+            </div>
+            <div class="album-item">
+                <img src="https://s2-g1.glbimg.com/lNSR6P27G8sGP-ZB4ClYjqYIJ6A=/0x0:660x495/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/L/Q/r4vPCQTBuQQmbHshRReA/artesanato-de-santarem.jpg" alt="Artesanato Rural">
+                <p>Tradições do campo que encantam na cidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <button id="backToTopBtn" title="Voltar ao Topo">🔝</button>
+
+    <script>
+        // Smooth Scroll para a navegação
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Reveal para as seções
+        const sections = document.querySelectorAll('section');
+        const revealSection = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+        const sectionObserver = new IntersectionObserver(revealSection, {
+            root: null,
+            threshold: 0.15 // A seção se torna visível quando 15% dela está na tela
+        });
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Botão Voltar ao Topo
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+
+        backToTopBtn.addEventListener('click', function() {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+            document.querySelector('header.hero').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Simulação de carregamento de imagens para a galeria (se usar URLs reais depois)
+        // Você pode substituir os placeholders.
+        const albumItems = document.querySelectorAll('.album-item img');
+        albumItems.forEach(img => {
+            // Apenas para garantir que o src é setado mesmo com placeholders
+            // Em um cenário real, você teria URLs de imagens reais aqui
+        });
+
+    </script>
+</body>
+</html>
